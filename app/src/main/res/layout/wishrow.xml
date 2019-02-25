@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="12dp"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:src="@android:drawable/ic_menu_agenda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="81dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imageView"
+
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="284dp"
+        android:layout_toEndOf="@+id/imageView"
+        android:text="Wish Title"
+        android:textSize="13sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/datetext"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="1dp"
+
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="268dp"
+        android:layout_toEndOf="@+id/imageView"
+        android:text="Date"
+        android:textSize="12sp"
+        android:textStyle="italic" />
+</RelativeLayout>
