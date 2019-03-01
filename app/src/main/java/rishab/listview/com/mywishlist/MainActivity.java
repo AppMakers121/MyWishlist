@@ -40,8 +40,8 @@ private void saveToDB(){
     dba.close();
      title.setText("");
      content.setText("");
-    //Intent i = new Intent(MainActivity.this,wishdetail.class);
-    //startActivity(i);
+    Intent i = new Intent(MainActivity.this,wishdetail.class);
+     startActivity(i);
 }
 
 }
