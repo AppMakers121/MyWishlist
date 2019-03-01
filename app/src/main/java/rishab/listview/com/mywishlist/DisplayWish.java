@@ -6,10 +6,12 @@ import android.database.DatabaseUtils;
 import android.support.constraint.solver.ArrayLinkedVariables;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +48,9 @@ private ListView listView;
 
         }
         dba.close();
+        wishAdapter = new WishAdapter(DisplayWish.this,R.layout.wishrow,dbwishes);
+        listView.setAdapter(wishAdapter);
+        wishAdapter.notifyDataSetChanged();
     }
 
 
@@ -86,8 +91,35 @@ private ListView listView;
 
         @Override
         public View getView(int position,View convertView,ViewGroup parent) {
+            View row = convertView;
+            ViewHolder holder = null;
+            if(row == null||(row.getTag())== null){
+                LayoutInflater inflater = LayoutInflater.from(activity);
+                row = inflater.inflate(layoutResource,null);
+                holder = new ViewHolder();
+                holder.mtitle = (TextView) row.findViewById(R.id.name);
+                holder.mdate = (TextView) row.findViewById(R.id.datetext);
 
-            return super.getView(position, convertView, parent);
+                row.setTag(holder);
+
+            }
+            else{
+                holder = (ViewHolder) row.getTag();
+            }
+            holder.mywish = getItem(position);
+            holder.mtitle.setText(holder.mywish.getTitle());
+            holder.mdate.setText(holder.mywish.getRecordDate());
+
+            return row;
+        }
+
+
+        class  ViewHolder{
+            Mywish mywish;
+            TextView mtitle;
+            TextView mid;
+            TextView mcontent;
+            TextView mdate;
         }
     }
 
